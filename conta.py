@@ -5,10 +5,11 @@ class Conta:
     saldo = 0.0;
     ultimaAlteracao = datetime.today().strftime('%d/%m/%Y - %H:%M:$S')
 
-    def __init__(self, cliente, numero, limite):
+    def __init__(self, cliente, numero, saldo, limite):
         self.cliente = cliente
         self.numero = numero
         self.limite = limite
+        self.saldo += saldo
 
     def sacar(self, valor):
         if (valor <= self.saldo):
