@@ -1,5 +1,6 @@
 from conta import Conta
 from cliente import Cliente
+import time
 
 def cadastro():
     nome = input("Insira seu nome: ")
@@ -11,20 +12,14 @@ def cadastro():
     conta = Conta(cliente, numero, saldo, limite)
     return conta
 
-def menu(conta):
-    print("\nSmart Bank")
-    print("------------------------")
-    print(f"Olá, {conta.cliente.nome}!")
-    print(f"Número da conta: {conta.numero}")
-    print(f"Saldo: {conta.saldo}")
-
 sair = False
 
 conta = cadastro()
-menu(conta)
 
 while sair == False:
+    print("\n> Smart Bank <")
     print("------------------------")
+    print(f"Olá, {conta.cliente.nome}!\n")
     print("Sacar: Digite 1")
     print("Depositar: Digite 2")
     print("Emitir histórico: Digite 3")
@@ -45,4 +40,7 @@ while sair == False:
         case 4:
             conta.emitirExtrato()
         case 5:
+            print("\nSaindo de sua conta...")
+            time.sleep(3)
+            print("Seção encerrada!")
             sair = True
