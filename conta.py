@@ -1,3 +1,4 @@
+# Guilherme Ricardo de Paiva e Gabriel Reis de Brito
 from datetime import datetime
 
 class Conta:

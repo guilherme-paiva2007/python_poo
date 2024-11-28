@@ -1,3 +1,4 @@
+# Guilherme Ricardo de Paiva e Gabriel Reis de Brito
 from conta import Conta
 from cliente import Cliente
 import time
