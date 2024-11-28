@@ -3,7 +3,7 @@ from datetime import datetime
 class Conta:
     historico = [];
     saldo = 0.0;
-    ultimaAlteracao = datetime.today.strftime('%d/%m/%Y - %H:%M:$S')
+    ultimaAlteracao = datetime.today().strftime('%d/%m/%Y - %H:%M:$S')
 
     def __init__(self, cliente, numero, limite):
         self.cliente = cliente
