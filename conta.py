@@ -13,7 +13,7 @@ class Conta:
         self.saldo += saldo
 
     def sacar(self, valor):
-        if (valor <= self.saldo):
+        if (valor <= self.saldo and valor > 0):
             self.saldo -= valor
             ultimaAlteracao = datetime.today().strftime('%d/%m/%Y - %H:%M:%S')
             alteracao = {
@@ -24,11 +24,13 @@ class Conta:
             }
             self.historico.append(alteracao)
             print(f"Sacado R${valor} na conta.")
-        else:
+        elif(valor > self.saldo):
             print(f"Saldo insuficiente. Pobre!!!!!!")
+        elif(valor <= 0):
+            print("Valor inválido!")
     
     def depositar(self, valor):
-        if (self.saldo + valor <= self.limite):
+        if (self.saldo + valor <= self.limite and valor > 0):
             self.saldo += valor
             ultimaAlteracao = datetime.today().strftime('%d/%m/%Y - %H:%M:%S')
             alteracao = {
@@ -39,8 +41,10 @@ class Conta:
             }
             self.historico.append(alteracao)
             print(f"Depositado R${valor} na conta.")
-        else:
+        elif(valor > self.limite):
             print(f"Limite insuficiente. Ganancioso.....")
+        elif(valor <= 0):
+            print("Valor inválido!")
 
     def emitirExtrato(self):
         print(f"\n----Extrato de {self.cliente.nome}----")
