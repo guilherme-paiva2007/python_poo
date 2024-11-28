@@ -13,8 +13,8 @@ class Conta:
 
     def sacar(self, valor):
         if (valor <= self.saldo):
-            saldo -= valor
-            ultimaAlteracao = datetime.today.strftime('%d/%m/%Y - %H:%M:%S')
+            self.saldo -= valor
+            ultimaAlteracao = datetime.today().strftime('%d/%m/%Y - %H:%M:%S')
             alteracao = {
                 'acao': 'sacar',
                 'alteracao': valor,
@@ -28,8 +28,8 @@ class Conta:
     
     def depositar(self, valor):
         if (self.saldo + valor <= self.limite):
-            saldo += valor
-            ultimaAlteracao = datetime.today.strftime('%d/%m/%Y - %H:%M:%S')
+            self.saldo += valor
+            ultimaAlteracao = datetime.today().strftime('%d/%m/%Y - %H:%M:%S')
             alteracao = {
                 'acao': 'depositar',
                 'alteracao': valor,
@@ -44,8 +44,10 @@ class Conta:
     def emitirExtrato(self):
         print(f"\n----Extrato de {self.cliente.nome}----")
         print(f"Número da conta: {self.numero}")
-        print(f"Saldo atual: {self.saldo}")
+        print(f"Saldo atual: R${self.saldo}")
         print(f"Data da última alteração: {self.ultimaAlteracao}\n")
 
     def emitirHistorico(self):
-        print(self.historico)
+        for registro in self.historico:
+            print(registro)
+            print(f"{registro['acao'].capitalize()}: R${registro['alteracao']}  -  {registro['data']}")

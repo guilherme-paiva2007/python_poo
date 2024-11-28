@@ -35,9 +35,11 @@ while sair == False:
 
     match acao:
         case 1:
-            float(input("Insira um valor de saque: R$ "))
+            valor = float(input("Insira um valor de saque: R$ "))
+            conta.sacar(valor)
         case 2:
-            float(input("Insira um valor de depósito: R$ "))
+            valor = float(input("Insira um valor de depósito: R$ "))
+            conta.depositar(valor)
         case 3:
             conta.emitirHistorico()
         case 4:
