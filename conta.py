@@ -45,9 +45,8 @@ class Conta:
         print(f"\n----Extrato de {self.cliente.nome}----")
         print(f"Número da conta: {self.numero}")
         print(f"Saldo atual: R${self.saldo}")
-        print(f"Data da última alteração: {self.ultimaAlteracao}\n")
+        print(f"Data da última alteração: {self.ultimaAlteracao}")
 
     def emitirHistorico(self):
         for registro in self.historico:
-            print(registro)
             print(f"{registro['acao'].capitalize()}: R${registro['alteracao']}  -  {registro['data']}")
