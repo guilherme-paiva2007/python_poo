@@ -13,35 +13,40 @@ def cadastro():
     conta = Conta(cliente, numero, saldo, limite)
     return conta
 
-sair = False
+ask = input("Possui uma conta? (Sim/Não): ")
 
-conta = cadastro()
+if ask == "Não":
+    conta = cadastro()
 
-while sair == False:
-    print("\n> Smart Bank <")
-    print("------------------------")
-    print(f"Olá, {conta.cliente.nome}!\n")
-    print("Sacar: Digite 1")
-    print("Depositar: Digite 2")
-    print("Emitir histórico: Digite 3")
-    print("Emitir extrato: Digite 4")
-    print("Sair: Digite 5")
-    print("------------------------")
-    acao = int(input("Ação: "))
+    sair = False
 
-    match acao:
-        case 1:
-            valor = float(input("Insira um valor de saque: R$ "))
-            conta.sacar(valor)
-        case 2:
-            valor = float(input("Insira um valor de depósito: R$ "))
-            conta.depositar(valor)
-        case 3:
-            conta.emitirHistorico()
-        case 4:
-            conta.emitirExtrato()
-        case 5:
-            print("\nSaindo de sua conta...")
-            time.sleep(3)
-            print("Seção encerrada!")
-            sair = True
+    while sair == False:
+        print("\n> Smart Bank <")
+        print("------------------------")
+        print(f"Olá, {conta.cliente.nome}!\n")
+        print("Sacar: Digite 1")
+        print("Depositar: Digite 2")
+        print("Emitir histórico: Digite 3")
+        print("Emitir extrato: Digite 4")
+        print("Sair: Digite 5")
+        print("------------------------")
+        acao = int(input("Ação: "))
+
+        match acao:
+            case 1:
+                valor = float(input("Insira um valor de saque: R$ "))
+                conta.sacar(valor)
+            case 2:
+                valor = float(input("Insira um valor de depósito: R$ "))
+                conta.depositar(valor)
+            case 3:
+                conta.emitirHistorico()
+            case 4:
+                conta.emitirExtrato()
+            case 5:
+                print("\nSaindo de sua conta...")
+                time.sleep(3)
+                print("Seção encerrada!")
+                sair = True
+elif ask == "Sim":
+    print("Página indisponível!")
